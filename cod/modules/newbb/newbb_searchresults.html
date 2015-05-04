@@ -1,0 +1,70 @@
+<TABLE WIDTH=100% BORDER=0 CELLPADDING=0 CELLSPACING=0 background="<{$xoops_imageurl}>forums/images/hd/XD-ObstusForum_03.gif">
+      <TR>
+        <TD width="78"> <IMG SRC="<{$xoops_imageurl}>forums/images/hd/XD-ObstusForum_01.gif" WIDTH=78 HEIGHT=15 ALT=""></TD>
+        <TD width="124" ROWSPAN=8> <IMG SRC="<{$xoops_imageurl}>forums/images/hd/XD-ObstusForum_02.gif" WIDTH=124 HEIGHT=111 ALT=""></TD>
+        <TD width="100%" ROWSPAN=8>&nbsp; </TD>
+        <TD width="54" ROWSPAN=8><IMG SRC="<{$xoops_imageurl}>forums/images/hd/XD-ObstusForum_05.gif" WIDTH=54 HEIGHT=111 ALT=""></TD>
+      </TR>
+      <TR>
+        <TD> <a href="<{$xoops_url}>/modules/newbb/"><IMG SRC="<{$xoops_imageurl}>forums/images/hd/XD-ObstusForum_06.gif" ALT="" WIDTH=78 HEIGHT=12 border="0"></a></TD>
+      </TR>
+      <TR>
+        <TD> <a href="<{$xoops_url}>/modules/newbb/search.php"><IMG SRC="<{$xoops_imageurl}>forums/images/hd/XD-ObstusForum_07.gif" ALT="" WIDTH=78 HEIGHT=12 border="0"></a></TD>
+      </TR>
+      <TR>
+        <TD> <a href="<{$xoops_url}>/modules/membership/"><IMG SRC="<{$xoops_imageurl}>forums/images/hd/XD-ObstusForum_08.gif" ALT="" WIDTH=78 HEIGHT=16 border="0"></a></TD>
+      </TR>
+      <TR>
+        <TD> <a href="<{$xoops_url}>/modules/xmmemberstats/"><IMG SRC="<{$xoops_imageurl}>forums/images/hd/XD-ObstusForum_09.gif" ALT="" WIDTH=78 HEIGHT=12 border="0"></a></TD>
+      </TR>
+      <TR>
+        <TD> <a href="<{$xoops_url}>/user.php"><IMG SRC="<{$xoops_imageurl}>forums/images/hd/XD-ObstusForum_10.gif" ALT="" WIDTH=78 HEIGHT=12 border="0"></a></TD>
+      </TR>
+      <TR>
+        <TD> <a href="<{$xoops_url}>/viewpmsg.php"><IMG SRC="<{$xoops_imageurl}>forums/images/hd/XD-ObstusForum_11.gif" ALT="" WIDTH=78 HEIGHT=11 border="0"></a></TD>
+      </TR>
+      <TR>
+        <TD> <IMG SRC="<{$xoops_imageurl}>forums/images/hd/XD-ObstusForum_12.gif" WIDTH=78 HEIGHT=21 ALT=""></TD>
+      </TR>
+    </TABLE>
+<div class="resultMsg"> <{$search_info}> </div>
+<br />
+<{if $results}>
+<table class="outer" border="0" cellpadding="0" cellspacing="0" align="center" width="95%">
+  <tr>
+    <td><table border="0" cellpadding="4" cellspacing="1" width="100%">
+        <tr class="head" align="center">
+          <td><{$smarty.const._MD_FORUMC}></td>
+          <td><{$smarty.const._MD_SUBJECT}></td>
+          <td><{$smarty.const._MD_AUTHOR}></td>
+          <td nowrap="nowrap"><{$smarty.const._MD_POSTTIME}></td>
+        </tr>
+        <!-- start search results -->
+<{section name=i loop=$results}>
+        <!-- start each result -->
+        <tr align="center">
+          <td class="even"><a href="<{$results[i].forum_link}>"><{$results[i].forum_name}></a></td>
+          <td class="odd" align="left"><a href="<{$results[i].link}>"><{$results[i].title}></a></td>
+          <td class="even"><{$results[i].poster}></a></td>
+          <td class="odd"><{$results[i].post_time}></td>
+        </tr>
+        <!-- end each result -->
+<{/section}>
+        <!-- end search results -->
+      </table></td>
+  </tr>
+<{if $search_next or $search_prev}>
+  <tr>
+    <td><table border="0" cellpadding="4" cellspacing="1" width="100%">
+		<tr class="head">
+			<td align="left" width="50%"><{$search_prev}> </td><td align="right" width="50%"> <{$search_next}></td>
+		</tr>
+      	</table></td>
+  </tr>
+<{/if}>
+</table>
+<br />
+<{elseif $lang_nomatch}>
+<div class="resultMsg"> <{$lang_nomatch}> </div>
+<br />
+<{/if}>

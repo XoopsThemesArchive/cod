@@ -1,0 +1,101 @@
+<TABLE WIDTH=100% BORDER=0 CELLPADDING=0 CELLSPACING=0 background="<{$xoops_imageurl}>forums/images/hd/XD-ObstusForum_03.gif">
+      <TR>
+        <TD width="78"> <IMG SRC="<{$xoops_imageurl}>forums/images/hd/XD-ObstusForum_01.gif" WIDTH=78 HEIGHT=15 ALT=""></TD>
+        <TD width="124" ROWSPAN=8> <IMG SRC="<{$xoops_imageurl}>forums/images/hd/XD-ObstusForum_02.gif" WIDTH=124 HEIGHT=111 ALT=""></TD>
+        <TD width="100%" ROWSPAN=8>&nbsp; </TD>
+        <TD width="54" ROWSPAN=8><IMG SRC="<{$xoops_imageurl}>forums/images/hd/XD-ObstusForum_05.gif" WIDTH=54 HEIGHT=111 ALT=""></TD>
+      </TR>
+      <TR>
+        <TD> <a href="<{$xoops_url}>/modules/newbb/"><IMG SRC="<{$xoops_imageurl}>forums/images/hd/XD-ObstusForum_06.gif" ALT="" WIDTH=78 HEIGHT=12 border="0"></a></TD>
+      </TR>
+      <TR>
+        <TD> <a href="<{$xoops_url}>/modules/newbb/search.php"><IMG SRC="<{$xoops_imageurl}>forums/images/hd/XD-ObstusForum_07.gif" ALT="" WIDTH=78 HEIGHT=12 border="0"></a></TD>
+      </TR>
+      <TR>
+        <TD> <a href="<{$xoops_url}>/modules/membership/"><IMG SRC="<{$xoops_imageurl}>forums/images/hd/XD-ObstusForum_08.gif" ALT="" WIDTH=78 HEIGHT=16 border="0"></a></TD>
+      </TR>
+      <TR>
+        <TD> <a href="<{$xoops_url}>/modules/xmmemberstats/"><IMG SRC="<{$xoops_imageurl}>forums/images/hd/XD-ObstusForum_09.gif" ALT="" WIDTH=78 HEIGHT=12 border="0"></a></TD>
+      </TR>
+      <TR>
+        <TD> <a href="<{$xoops_url}>/user.php"><IMG SRC="<{$xoops_imageurl}>forums/images/hd/XD-ObstusForum_10.gif" ALT="" WIDTH=78 HEIGHT=12 border="0"></a></TD>
+      </TR>
+      <TR>
+        <TD> <a href="<{$xoops_url}>/viewpmsg.php"><IMG SRC="<{$xoops_imageurl}>forums/images/hd/XD-ObstusForum_11.gif" ALT="" WIDTH=78 HEIGHT=11 border="0"></a></TD>
+      </TR>
+      <TR>
+        <TD> <IMG SRC="<{$xoops_imageurl}>forums/images/hd/XD-ObstusForum_12.gif" WIDTH=78 HEIGHT=21 ALT=""></TD>
+      </TR>
+    </TABLE>
+<!-- start module contents -->
+
+<table border="0" cellpadding="5" align="center">
+  <tr>
+    <td colspan="2" align="left"><{$img_folder}>&nbsp;&nbsp;<a href="<{$xoops_url}>/modules/<{$xoops_dirname}>/index.php"><{$forumindex}></a><br />
+		&nbsp;&nbsp;&nbsp;<{$img_folder}>&nbsp;&nbsp;<a href="search.php"><{$smarty.const._SR_SEARCH}></a></td>
+  </tr>
+</table>
+<{if $search_info}>
+<{include file="db:newbb_searchresults.html" results=$results}>
+<{/if}>
+<form name="Search" action="search.php" method="get">
+  <table class="outer" border="0" cellpadding="1" cellspacing="0" align="center" width="95%">
+    <tr>
+      <td><table border="0" cellpadding="1" cellspacing="1" width="100%" class="head">
+          <tr>
+            <td class="head" width="10%" align="right"><strong><{$smarty.const._SR_KEYWORDS}></strong>&nbsp;</td>
+            <td class="even"><input type="text" name="term" /></td>
+          </tr>
+          <tr>
+            <td class="head" align="right"><strong><{$smarty.const._SR_TYPE}></strong>&nbsp;</td>
+            <td class="even">
+	            <select name="andor">
+	            <option value="any" selected="selected"><{$smarty.const._SR_ANY}></option>
+	            <option value="all"><{$smarty.const._SR_ALL}></option>
+	            <option value="exact"><{$smarty.const._SR_EXACT}></option>
+	            </select>
+            </td>
+          </tr>
+          <tr>
+            <td class="head" align="right"><strong><{$smarty.const._MD_FORUMC}></strong>&nbsp;</td>
+            <td class="even"><{$forum_selection_box}></td>
+          </tr>
+          <tr>
+            <td class="head" align="right"><strong><{$smarty.const._SR_SEARCHIN}></strong>&nbsp;</td>
+            <td class="even"><input type="radio" name="searchin" value="title" /><{$smarty.const._MD_SUBJECT}>&nbsp;&nbsp;
+              <input type="radio" name="searchin" value="text" /><{$smarty.const._MD_BODY}>&nbsp;&nbsp;
+              <input type="radio" name="searchin" value="both" checked="checked" /><{$smarty.const._MD_SUBJECT}> & <{$smarty.const._MD_BODY}>&nbsp;&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="head" align="right"><strong><{$smarty.const._MD_AUTHOR}></strong>&nbsp;</td>
+            <td class="even"><input type="text" name="uname" value="" /></td>
+          </tr>
+          <tr>
+            <td class="head" align="right"><strong><{$smarty.const._MD_SORTBY}></strong>&nbsp;</td>
+            <td class="even">
+            	<select name=="sortby">
+            	<option value="p.post_time desc" selected="selected"><{$smarty.const._MD_DATE}></option>
+              	<option value="t.topic_title"><{$smarty.const._MD_TOPIC}></option>
+              	<option value="f.forum_name"><{$smarty.const._MD_FORUM}></option>
+              	<option value="u.uname"><{$smarty.const._MD_USERNAME}></option>
+              	</select>
+          	</td>
+          </tr>
+          <tr>
+            <td class="head" align="right"><strong><{$smarty.const._MD_SINCE}></strong>&nbsp;</td>
+            <td class="even"><{$since_selection_box}></td>
+          </tr>
+          <{if $search_rule}>
+          <tr>
+            <td class="head" align="right"><strong><{$smarty.const._SR_SEARCHRULE}></strong>&nbsp;</td>
+            <td class="even"><{$search_rule}></td>
+          </tr>
+          <{/if}>
+          <tr>
+            <td class="head" align="right">&nbsp;</td>
+            <td class="even"><input type="submit" name="submit" value="<{$smarty.const._MD_SEARCH}>" /></td>
+        </table></td>
+    </tr>
+  </table>
+</form>
+<!-- end module contents -->
